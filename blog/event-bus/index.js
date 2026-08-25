@@ -13,10 +13,10 @@ app.post('/events', async (req, res) => {
     events.push(event);
 
     try {
-            await axios.post('http://localhost:4000/events', event);
-            await axios.post('http://localhost:4001/events', event);
-            await axios.post('http://localhost:4002/events', event);
-            await axios.post('http://localhost:4003/events', event);
+            await axios.post('http://posts-clusterip-srv:4000/events', event);
+            // await axios.post('http://localhost:4001/events', event);
+            // await axios.post('http://localhost:4002/events', event);
+            // await axios.post('http://localhost:4003/events', event);
     } catch (error) {
         console.error('Error occurred while posting event:', error);
     }
