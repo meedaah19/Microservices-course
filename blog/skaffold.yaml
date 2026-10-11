@@ -1,0 +1,58 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local: 
+    push: false
+  artifacts:
+    - image: meedaah/client
+      context: ./client
+      docker:
+        dockerfile: Dockerfile
+      sync: 
+        manual:
+         -  src: 'src/**/*.js'
+            dest: .
+    - image: meedaah/comments
+      context: ./comments
+      docker:
+        dockerfile: Dockerfile
+      sync: 
+        manual:
+         -  src: '*.js'
+            dest: .
+    - image: meedaah/event-bus
+      context: ./event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync: 
+        manual:
+         -  src: '*.js'
+            dest: .
+    - image: meedaah/moderation
+      context: ./moderation
+      docker:
+        dockerfile: Dockerfile
+      sync: 
+        manual:
+         -  src: '*.js'
+            dest: .
+    - image: meedaah/posts
+      context: ./posts
+      docker:
+        dockerfile: Dockerfile
+      sync: 
+        manual:
+         -  src: '*.js'
+            dest: .
+    - image: meedaah/query
+      context: ./query
+      docker:
+        dockerfile: Dockerfile
+      sync: 
+        manual:
+         -  src: '*.js'
+            dest: .

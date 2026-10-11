@@ -1,5 +1,9 @@
 FROM node:22-alpine
 
+ENV CI=true
+ENV WDS_SOCKET_PORT=0
+ENV BROWSER=none
+
 WORKDIR /app
 
 COPY package.json ./

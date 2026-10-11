@@ -1,6 +1,4 @@
-import React from "react";
-
-const CommentList = ({ comments }) => {  
+const CommentList = ({ comments = [] }) => {  
   const renderedComments = comments.map((comment) => {
     
     let content;
@@ -18,8 +16,6 @@ const CommentList = ({ comments }) => {
     }
 
     return <li key={comment.id}>{content}</li>
-
-    return <li key={comment.id}>{comment.content}</li>;
   });
 
   return <ul>{renderedComments}</ul>;

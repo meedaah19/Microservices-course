@@ -13,7 +13,7 @@ app.post('/events', async (req, res) => {
     events.push(event);
 
     try {
-            await axios.post('http://posts-clusterip-srv:4000/events', event);
+            await axios.post('http://posts-srv:4000/events', event);
             await axios.post('http://comments-srv:4001/events', event);
             await axios.post('http://query-srv:4002/events', event);
             await axios.post('http://moderation-srv:4003/events', event);
