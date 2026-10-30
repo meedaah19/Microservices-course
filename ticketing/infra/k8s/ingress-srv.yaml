@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: ticketing.dev
+    - host: ticketing.test
       http:
         paths:
           - path: /api/users
